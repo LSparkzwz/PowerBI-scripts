@@ -1,7 +1,19 @@
 # Params to configurate
 $groupId = ""
 $scorecardId = ""
-# Excel columns of your goals
+# Excel columns of your goals, the first column is a root goal, the second a son of that root goal, the third the son of the son etc..
+# ex. A B C columns
+# If there's an excel row with A = "1", B = "2", C = "3"
+# The goals that will be created from that row are 1, 2 with 1 as parent, 3 with 2 as parent
+#
+# Duplicates with the same parent (or no parent if root) won't be created, for example
+# If there's three rows:
+# A = "1", B = "2", C = "3"
+# A = "1", B = "2", C = "4"
+# A = "5", B = "2", C = "3"
+# The goals that will be created from that row are:
+# 1, 2 with 1 as parent, 3 with 2 as parent, 4 with 2 as parent, (skipped creating 1 and 2 again because they're duplicates)
+# 5, 2 with 5 as parent, 3 with 5 as parent (duplicates with different parents are permitted)
 $columnNames = @("")
 $excelPath = ""  
 $sheetName = "" #Excel sheet 
