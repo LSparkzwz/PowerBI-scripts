@@ -2,6 +2,7 @@
 $scorecardId = ""
 $newOwnerEmail = ""
 # Goal path, starts from root goal to the goal you want to reach, with every parent inbetween
+# Similar to create goal
 $columnNames = @("")
 
 $api = "api.powerbi.com"
